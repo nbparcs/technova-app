@@ -14,8 +14,7 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '22'
-
+        node-version: '22' 
     - name: Install dependencies
       run: npm install
       working-directory: ./technova-frontend
@@ -29,4 +28,4 @@ jobs:
       with:
         app-name: 'technova-app'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: './technova-frontend/build'
+        package: ./technova-frontend/build
