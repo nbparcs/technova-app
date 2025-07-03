@@ -14,18 +14,19 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '22' 
+        node-version: '20'
+
     - name: Install dependencies
       run: npm install
-      working-directory: ./technova-frontend
+      working-directory: technova-frontend
 
     - name: Build React app
       run: npm run build
-      working-directory: ./technova-frontend
+      working-directory: technova-frontend
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'technova-app'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: ./technova-frontend/build
+        package: technova-frontend/build
